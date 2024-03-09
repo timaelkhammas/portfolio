@@ -1,77 +1,111 @@
-<!DOCTYPE html><html><head>
-    <meta charset="UTF8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tima El Khammas</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fa(tima)-Ezzahra El Khammas</title>
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white; /* Set default text color */
+    transition: color 0.5s ease; /* Smooth transition */
+  }
+  
+  .text {
+    text-align: left;
+    margin-top: 1em;
+    margin-left: 1em; /* Adjust as needed */
+    margin-right: 3em;
+    font-size: 16px;
+    line-height: 1.3;
+  }
 
+  .text span {
+    display: inline-block;
+    transition: color 0.5s; /* Smooth transition */
+  }
 
-	<style type="text/css">
-
-		::-moz-selection { /* Code for Firefox */
-	    background:yellow;
+  #text a {
+	  color: white;
 	}
 
-	::selection {
-	    background:yellow;
+  #text a:hover {
+	  color: white;
+	  cursor: pointer;
+	  font-style: italic
 	}
-
-
-		body {
-
-            font-family: 'Times', 'Times New Roman' serif;
-			font-size: 6vw;
-			line-height:1;
-			margin-left:100px;
-			padding: 15px;
-			background: rgb(240, 240, 240);
-			color: rgb(189, 183, 107);
-
-		}
-
-		.left {
-			float:left; 
-			width:35vw; 
-			top:0;
-			mix-blend-mode: var(--mode);
-    color: #8355d7;
-    grid-column: 3/3;
-    text-align: center;
-    transform: skew(-15deg) rotate(-15deg);
-    z-index: 300;
-		}
-
-		.right {
-			float:left; 
-			width:40vw; 
-			padding-left:13vw;
-			mix-blend-mode: var(--mode);
-    color: rgb(189, 183, 107);
-    grid-column: 3/3;
-    text-align: center;
-    transform: skew(15deg) rotate(15deg);
-    z-index: 300;
-		}
-		
-
-		a {
-			color:rgb(189, 183, 107);
-			text-decoration: none;
-		}
-
-			a:hover {
-                cursor: pointer;
-	            font-style: italic
-
-			}
-
-
-	</style>
+  
+  .image-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 1em;
+  }
+  
+  .image-container img {
+    width: 200px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Adjust spacing between images */
+  }
+</style>
 </head>
+<body>
 
-	<body>
-	<div class="left">Fa(tima) Ezzahra<br>El Khammas</div>
+  <div class="text">
+    <p>
+      <span>f</span><span>a</span><span>(</span><span>t</span><span>i</span><span>m</span><span>a</span><span>)</span><span>-</span><span>e</span><span>z</span><span>z</span><span>a</span><span>h</span><span>r</span><span>a</span>
+      <span>e</span><span>l</span>
+      <span>k</span><span>h</span><span>a</span><span>m</span><span>m</span><span>a</span><span>s</span>
+      <br>
+  studies, writes, reads, collects, organizes, codes, gathers and hangs out.
+  <br><br>
+  currently, she is doing graphic design things with classmates <a href="https://www.instagram.com/ekagd_ma/"target="_blank"><span>@</span><span>e</span><span>k</span><span>a</span><span>g</span><span>d</span><span>_</span><span>m</span><span>a</span></a>
+  <br>
+  tangentially, she is researching archives of political publishing practices in the context of Morocco under the name <a href="https://www.instagram.com/ta5zine/"target="_blank"><span>@</span><span>t</span><span>a</span><span>5</span><span>z</span><span>i</span><span>n</span><span>e</span></a> meaning ta[kh]zine or تخزين, as in saving, memorizing, piling and accumulating.
+  <br><br>
+  most of the time, she mainly works with publications, text, writing, web and is interested in exploring how all of these practices intersect. 
+  <br>
+  when she's not busy on her computer, you can find her on a walk in a cemetery or watching movies. 
+  <br><br>
+  <a href="mailto:timaelkhammas@gmail.com" target="_blank"><span>t</span><span>i</span><span>m</span><span>a</span><span>e</span><span>l</span><span>k</span><span>a</span><span>m</span><span>m</span><span>a</span><span>s</span><span>@</span><span>g</span><span>m</span><span>a</span><span>i</span><span>l</span><span>.</span><span>c</span><span>o</span><span>m</span></a>
+  <br>
+  <a href="https://www.instagram.com/timaelkhammas" target="_blank"><span>i</span><span>n</span><span>s</span><span>t</span><span>a</span><span>g</span><span>r</span><span>a</span><span>m</span></a>
+  <br>
+  <a href="https://www.are.na/tima" target="_blank"><span>a</span><span>r</span><span>e</span><span>.</span><span>n</span><span>a</span></a>
+</p>
+</div>
 
- 	<div class="right"><a href="mailto:timaelkhammas@gmail.com">Email</a>,<a href="https://www.instagram.com/timaelkhammas/"> Instagram</a>, <br> <a href="https://www.are.na/tima/"> Are.na</a></div>
+<script>
+  // Function to generate a random color
+  function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
+  window.onload = function() {
+    var spans = document.querySelectorAll('.text span');
+    spans.forEach(function(span) {
+      span.style.color = getRandomColor();
+    });
+  };
+  
+  // Function to change text color randomly with a smooth transition
+  function changeTextColor() {
+    var spans = document.querySelectorAll('.text span');
+    spans.forEach(function(span) {
+      span.style.color = getRandomColor();
+    });
+  }
+  
+  // Change text color every 3 seconds (3000 milliseconds)
+  setInterval(changeTextColor, 3000);
+</script>
 
-
-</body></html>
+</body>
+</html>
