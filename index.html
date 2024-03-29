@@ -89,9 +89,9 @@
 
 
 <script>
-   // Function to generate a random light color
-   function getRandomLightColor() {
-    var letters = '6789ABCDEF';
+  // Function to generate a random dark color
+  function getRandomDarkColor() {
+    var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * letters.length)];
@@ -102,7 +102,7 @@
   window.onload = function() {
     var spans = document.querySelectorAll('.text span');
     spans.forEach(function(span) {
-      span.style.color = getRandomLightColor();
+      span.style.color = getRandomDarkColor();
     });
   };
 
@@ -110,12 +110,15 @@
   function changeTextColor() {
     var spans = document.querySelectorAll('.text span');
     spans.forEach(function(span) {
-      span.style.color = getRandomLightColor();
+      span.style.color = getRandomDarkColor();
     });
   }
 
   // Change text color every 2 seconds (2000 milliseconds)
   setInterval(changeTextColor, 2000);
+
+</script>
+
 
 </script>
 
