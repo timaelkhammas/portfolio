@@ -11,15 +11,15 @@
     background-color: rgb(240, 240, 240);
     margin: 0;
     padding: 0;
-    color: black; /* Set default text color */
-    transition: color 0.5s ease; /* Smooth transition */
+    color: black; 
+    transition: color 0.5s ease; 
 	  font-weight: 300;
     font-family: Arial, sans-serif;
   }
   
   .text {
     text-align: left;
-    margin-left: 1em; /* Adjust as needed */
+    margin-left: 1em; 
     margin-right: 2em;
     font-size: 16px;
     line-height: 1.3;
@@ -29,7 +29,7 @@
 
   .text span {
     display: inline-block;
-    transition: color 0.5s; /* Smooth transition */
+    transition: color 0.5s; 
   }
 
   #text a {
@@ -41,20 +41,19 @@
 	  cursor: pointer;
 	}
 
-/* Added style for the image */
 .container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full height of viewport */
-    overflow: hidden; /* Hide overflow to contain image */
+    height: 100vh; 
+    overflow: hidden; 
   }
 
   .moving-image {
     position: absolute;
-    width: 100px; /* Adjust as needed */
+    width: 100px; 
     height: auto;
-    z-index: 9999; /* Ensure it's above other elements */
-    transition: transform 10s; /* Slower movement */
+    z-index: 9999; 
+    transition: transform 10s; 
   }
 
   ::-webkit-scrollbar {
@@ -64,7 +63,7 @@
     
     @media only screen and (max-width: 600px) {
   .text {
-    width: calc(100% - 2em); /* Adjust as needed */
+    width: calc(100% - 2em); 
     margin-left: auto;
     margin-right: auto;
   }
@@ -76,9 +75,8 @@
 <body>
 <br>
 
-<!-- Container to contain the image -->
+
 <div class="container">
-  <!-- Image moves around the screen -->
   <img class="moving-image" src="images/tima.jpg" alt="Moving Image">
 
 
@@ -111,7 +109,7 @@
 
 
 <script>
-  // Function to generate a random dark color
+  // generate a random dark color
   function getRandomDarkColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -128,7 +126,7 @@
     });
   };
 
-  // Function to change text color randomly with transition
+  // change text color randomly
   function changeTextColor() {
     var spans = document.querySelectorAll('.text span');
     spans.forEach(function(span) {
@@ -136,11 +134,11 @@
     });
   }
 
-  // Change text color every 2 seconds (2000 milliseconds)
+
   setInterval(changeTextColor, 2000);
 
 
-  // Function to move the image smoothly around the screen with bouncing effect
+
   function moveImage() {
     var container = document.querySelector('.container');
     var image = document.querySelector('.moving-image');
@@ -149,7 +147,6 @@
     var offsetY = Math.random() * (rect.height - image.offsetHeight);
     var speed = 1; // Adjust the speed of movement
 
-    // Check if the image has hit any of the four corners
     if (offsetX <= 0 || offsetY <= 0 || offsetX >= rect.width - image.offsetWidth || offsetY >= rect.height - image.offsetHeight) {
       // Reverse the direction of movement if hitting the corner
       offsetX = Math.min(Math.max(offsetX, 0), rect.width - image.offsetWidth);
@@ -163,7 +160,7 @@
     image.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
   }
 
-  // Move the image initially and then trigger the movement every 3 seconds (3000 milliseconds)
+
   moveImage(); // Initial move
   setInterval(moveImage, 3000);
 
