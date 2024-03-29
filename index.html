@@ -41,6 +41,22 @@
 	  cursor: pointer;
 	}
 
+/* Added style for the image */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full height of viewport */
+    overflow: hidden; /* Hide overflow to contain image */
+  }
+
+  .moving-image {
+    position: absolute;
+    width: 100px; /* Adjust as needed */
+    height: auto;
+    z-index: 9999; /* Ensure it's above other elements */
+    transition: transform 10s; /* Slower movement */
+  }
+
   ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
@@ -59,6 +75,12 @@
 
 <body>
 <br>
+
+<!-- Container to contain the image -->
+<div class="container">
+  <!-- Image moves around the screen -->
+  <img class="moving-image" src="images/tima.jpg" alt="Moving Image">
+
 
   <div class="text">
       <span>F</span><span>a</span><span>(</span><span>t</span><span>i</span><span>m</span><span>a</span><span>)</span><span>-</span><span>E</span><span>z</span><span>z</span><span>a</span><span>h</span><span>r</span><span>a</span>
@@ -116,6 +138,34 @@
 
   // Change text color every 2 seconds (2000 milliseconds)
   setInterval(changeTextColor, 2000);
+
+
+  // Function to move the image smoothly around the screen with bouncing effect
+  function moveImage() {
+    var container = document.querySelector('.container');
+    var image = document.querySelector('.moving-image');
+    var rect = container.getBoundingClientRect();
+    var offsetX = Math.random() * (rect.width - image.offsetWidth);
+    var offsetY = Math.random() * (rect.height - image.offsetHeight);
+    var speed = 1; // Adjust the speed of movement
+
+    // Check if the image has hit any of the four corners
+    if (offsetX <= 0 || offsetY <= 0 || offsetX >= rect.width - image.offsetWidth || offsetY >= rect.height - image.offsetHeight) {
+      // Reverse the direction of movement if hitting the corner
+      offsetX = Math.min(Math.max(offsetX, 0), rect.width - image.offsetWidth);
+      offsetY = Math.min(Math.max(offsetY, 0), rect.height - image.offsetHeight);
+      speed = -1; // Reverse the direction
+    }
+
+    offsetX = Math.min(Math.max(offsetX + speed * 50, 0), rect.width - image.offsetWidth);
+    offsetY = Math.min(Math.max(offsetY + speed * 50, 0), rect.height - image.offsetHeight);
+
+    image.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  }
+
+  // Move the image initially and then trigger the movement every 3 seconds (3000 milliseconds)
+  moveImage(); // Initial move
+  setInterval(moveImage, 3000);
 
 </script>
 
