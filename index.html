@@ -208,6 +208,11 @@ thank you for taking the time to visit.
     
     var currentIndex = 0; 
 
+	       var event = 'click';
+    if ('ontouchstart' in window) {
+      event = 'touchstart';
+    }
+
 
     document.addEventListener('click', function(event) {
       var img = document.createElement('img');
