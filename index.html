@@ -103,6 +103,16 @@ thank you for taking the time to visit.
 	  color: white;
 	  cursor: pointer;
 	} 
+
+  #removeImagesButton {
+    margin-top: 1em;
+      position: fixed;
+      right: 10px;
+      z-index: 1000;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
     
     @media only screen and (max-width: 600px) {
   .text {
@@ -122,6 +132,8 @@ thank you for taking the time to visit.
 
 
 <body>
+  <button id="removeImagesButton" onclick="removeAllImages()">clean</button>
+
   <div class="text">
       <span>F</span><span>a</span><span>(</span><span>t</span><span>i</span><span>m</span><span>a</span><span>)</span><span>-</span><span>E</span><span>z</span><span>z</span><span>a</span><span>h</span><span>r</span><span>a</span>
       <span>E</span><span>l</span>
@@ -259,18 +271,41 @@ thank you for taking the time to visit.
     } else {
       // Desktop
       document.addEventListener('click', function(event) {
-        var img = document.createElement('img');
-        img.src = images[currentIndex]; 
-        img.style.maxWidth = '300px'; 
-        img.style.position = 'fixed'; 
-        img.style.left = (event.pageX - 75) + 'px'; 
-        img.style.top = (event.pageY - 75) + 'px'; 
-        img.setAttribute('draggable', 'true');
-        document.body.appendChild(img);
-        currentIndex = (currentIndex + 1) % images.length; 
+        if (!buttonClicked && event.target.id !== 'removeImagesButton') {
+          var img = document.createElement('img');
+          img.src = images[currentIndex]; 
+          img.style.maxWidth = '300px'; 
+          img.style.position = 'fixed'; 
+          img.style.left = (event.pageX - 75) + 'px'; 
+          img.style.top = (event.pageY - 75) + 'px'; 
+          img.setAttribute('draggable', 'true');
+          document.body.appendChild(img);
+          currentIndex = (currentIndex + 1) % images.length; 
+        }
       });
     }
-  };
+
+    var removeImagesButton = document.getElementById('removeImagesButton');
+      removeImagesButton.addEventListener('click', function(event) {
+        removeAllImages();
+      });
+    };
+
+    document.addEventListener('click', function(event) {
+        if (event.target.id !== 'removeImagesButton') {
+          buttonClicked = false;
+        }
+      });
+
+    var buttonClicked = false;
+
+function removeAllImages() {
+  buttonClicked = true;
+  var images = document.querySelectorAll('img');
+  images.forEach(function(image) {
+    image.parentNode.removeChild(image);
+  });
+}
 
 
   function changeTextColor() {
