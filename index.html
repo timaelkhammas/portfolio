@@ -243,18 +243,33 @@ thank you for taking the time to visit.
       event = 'touchstart';
     }
 
-
-    document.addEventListener('click', function(event) {
-      var img = document.createElement('img');
-      img.src = images[currentIndex]; 
-      img.style.maxWidth = '300px'; 
-      img.style.position = 'fixed'; 
-      img.style.left = (event.pageX - 75) + 'px'; 
-      img.style.top = (event.pageY - 75) + 'px'; 
-      img.setAttribute('draggable', 'true');
-      document.body.appendChild(img);
-      currentIndex = (currentIndex + 1) % images.length; 
-    });
+     // Mobile
+    if ('ontouchstart' in window) {
+      document.addEventListener('touchstart', function(event) {
+        var img = document.createElement('img');
+        img.src = images[currentIndex]; 
+        img.style.maxWidth = '300px'; 
+        img.style.position = 'fixed'; 
+        img.style.left = (event.touches[0].clientX - 75) + 'px'; 
+        img.style.top = (event.touches[0].clientY - 75) + 'px'; 
+        img.setAttribute('draggable', 'true');
+        document.body.appendChild(img);
+        currentIndex = (currentIndex + 1) % images.length; 
+      });
+    } else {
+      // Desktop
+      document.addEventListener('click', function(event) {
+        var img = document.createElement('img');
+        img.src = images[currentIndex]; 
+        img.style.maxWidth = '300px'; 
+        img.style.position = 'fixed'; 
+        img.style.left = (event.pageX - 75) + 'px'; 
+        img.style.top = (event.pageY - 75) + 'px'; 
+        img.setAttribute('draggable', 'true');
+        document.body.appendChild(img);
+        currentIndex = (currentIndex + 1) % images.length; 
+      });
+    }
   };
 
 
