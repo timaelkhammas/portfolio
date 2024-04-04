@@ -120,7 +120,8 @@ thank you for taking the time to visit.
     width: calc(100% - 2em); 
     margin-left: auto;
     margin-right: auto;
-    font-size: 19px;
+    font-size: 18px;
+    line-height: 1.2;
     font-weight: 500;
   }
 
@@ -130,6 +131,7 @@ thank you for taking the time to visit.
 
   #removeImagesButton {
         background-color: transparent; 
+        margin-top: 0.7em;
     }
   }
 </style>
@@ -322,43 +324,6 @@ function removeAllImages() {
 
   setInterval(changeTextColor, 1000);
 
-  var buttonClicked = false;
-    var imagesMoving = false;
-    var imagesInterval;
-
-
-
-document.addEventListener('touchend', function(event) {
-        if (!buttonClicked) {
-          startMovingImages();
-        }
-      });
-
-      document.addEventListener('mouseup', function(event) {
-        if (!buttonClicked) {
-          startMovingImages();
-        }
-      });
-  
-
-    function startMovingImages() {
-      if (!imagesMoving) {
-        imagesMoving = true;
-        imagesInterval = setInterval(moveImages, 200); 
-      }
-    }
-
-    function moveImages() {
-      var images = document.querySelectorAll('img');
-      images.forEach(function(image) {
-        var newX = parseInt(image.style.left) + Math.floor(Math.random() * 5) - 2; 
-        var newY = parseInt(image.style.top) + Math.floor(Math.random() * 5) - 2; 
-        newX = Math.min(Math.max(newX, 0), window.innerWidth - 150); 
-        newY = Math.min(Math.max(newY, 0), window.innerHeight - 150); 
-        image.style.left = newX + 'px';
-        image.style.top = newY + 'px';
-      });
-    }
 
 
 </script>
