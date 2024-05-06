@@ -42,9 +42,11 @@ body, html {
 .bio {
     color: white;
     margin-left: 9em; /* Adjust indent for the bio text */
+    margin-right: 0.5em;
     font-size: 23px;
     line-height: 1.2;
-    margin-right: 0.5em;
+    -webkit-text-stroke-width: 0px;
+    max-width: calc(100% - 9em); /* Set max-width to prevent it from going out of the viewport */
 }
   
   .text {
