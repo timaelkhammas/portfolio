@@ -9,7 +9,7 @@ thank you for taking the time to visit.
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Fa(tima)-Ezzahra El Khammas"/>
 <meta property="og:image" content="/images/thumbnail.jpg"/>
 <meta property="og:description" content="Fa(tima)-Ezzahra El Khammas studies, writes, reads, collects, organizes, codes, gathers and hangs out."/>
@@ -99,14 +99,16 @@ body, html {
 
 @media (max-width: 768px) {
     .CV-item {
-        width: calc(75% - 2em); /* Make each item take full width on smaller screens */
+        width: calc(80% - 2em); /* Make each item take full width on smaller screens */
     }
 
     .CV {
       margin-right: 0.5em;
+      margin-left: 15em; /* Remove indentation on mobile devices */
     }
 
     .bio {
+      margin-left: 9em; /* Remove indentation on mobile devices */
         margin-right: 0.5em; /* Adjust margin for mobile devices */
     }
 
@@ -179,8 +181,19 @@ body, html {
 <br>
 <br>
 <br>
-
 </body>
+
+<script>
+  var docWidth = document.documentElement.offsetWidth;
+[].forEach.call(
+  document.querySelectorAll('*'),
+  function(el) {
+    if (el.offsetWidth > docWidth) {
+      console.log(el);
+    }
+  }
+);
+</script>
 </html>
 
 
