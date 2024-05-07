@@ -74,53 +74,52 @@ body, html {
 }
 
 .CV {
-    display: flex; /* Use flexbox */
-    flex-direction: row; /* Arrange children elements horizontally */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    align-items: flex-start; /* Align items to the start of the cross axis */
-    margin-left: 15em; /* Match the indent where the bio text starts */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-left: 15em;
     margin-top: 5em;
     margin-right: 0.5em;
     font-size: 14px;
     line-height: 1.2;
     -webkit-text-stroke-width: 0px;
     width: 70%;
-    z-index: 9999; 
+    z-index: 9999;
     color: white;
     mix-blend-mode: difference;
-    top: 50px; /* Adjust the top position as needed */
+    top: 50px;
+    justify-content: space-between;
 }
 
 .CV-item {
-    margin-right: 2em; /* Add some space between each item */
-    margin-bottom: 1em; /* Add some space between each item */
-    width: calc(30% - 2em); /* Make each item take half of the container's width */
-    padding-left: 2em; /* Add padding to visually separate items */
+    margin-right: 2em;
+    margin-bottom: 1em;
+    width: 40%; /* Adjusted width for smaller screens */
+    padding-left: 2em;
 }
 
 @media (max-width: 768px) {
-    .CV-item {
-        padding-left: 0; /* Add padding to visually separate items */
-        width: calc(70% - 1em); /* Make each item take half of the container's width */
+  .CV-item {
+        padding-left: 0;
+        width: 40%; /* Adjusted width for smaller screens */
         font-size: 12px;
         line-height: 1.2;
-        margin-right: 2em; /* Add some space between each item */
     }
 
     .CV {
-      margin-right: 0.5em;
-      margin-left: 0.5em; /* Remove indentation on mobile devices */
-      margin-top: 7em;
+        margin-right: 0.5em;
+        margin-left: 0.5em;
+        margin-top: 7em;
+        width: 100%;
     }
 
     .bio {
-      margin-top: 14em;
-      margin-left: 0.5em; /* Remove indentation on mobile devices */
-      margin-right: 0.5em; /* Adjust margin for mobile devices */
-      font-size: 14px;
-      line-height: 1.2;
-      max-width: calc(100% - 0.5em); /* Set max-width to prevent it from going out of the viewport */
-
+        margin-top: 14em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        font-size: 14px;
+        line-height: 1.2;
+        max-width: calc(100% - 0.5em);
     }
 
 }
