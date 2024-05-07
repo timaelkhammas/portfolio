@@ -43,6 +43,7 @@ body, html {
     color: white;
     margin-left: 9em; /* Adjust indent for the bio text */
     margin-right: 0.5em;
+    margin-top: 14em;
     font-size: 23px;
     line-height: 1.2;
     -webkit-text-stroke-width: 0px;
@@ -79,7 +80,7 @@ body, html {
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
     align-items: flex-start; /* Align items to the start of the cross axis */
     margin-left: 15em; /* Match the indent where the bio text starts */
-    margin-top: 5em;
+    margin-top: 14em;
     margin-right: 0.5em;
     font-size: 14px;
     line-height: 1.2;
@@ -104,6 +105,8 @@ body, html {
         width: calc(70% - 1em); /* Make each item take half of the container's width */
         font-size: 12px;
         line-height: 1.2;
+        margin-right: 2em; /* Add some space between each item */
+
 
     }
 
@@ -113,8 +116,13 @@ body, html {
     }
 
     .bio {
-      margin-left: 9em; /* Remove indentation on mobile devices */
+      margin-top: 5em;
+      margin-left: 0.5em; /* Remove indentation on mobile devices */
       margin-right: 0.5em; /* Adjust margin for mobile devices */
+      font-size: 14px;
+      line-height: 1.2;
+      max-width: calc(100% - 0.5em); /* Set max-width to prevent it from going out of the viewport */
+
     }
 
 }
@@ -137,14 +145,6 @@ body, html {
         <a href="https://www.instagram.com/timaelkhammas/" target="_blank">Instagram</a>
         <br>
         <a href="mailto:timaelkhammas@gmail.com" target="_blank">timaelkhammas[@]gmail.com</a>
-    </div>
-    <div class="bio">
-      Graphic designer (currently) based in Tallinn, EE. 
-      I study, write, read, collect, organize, gather, code (learn) and hang out.
-      As of now, I am pursuing a Master in Graphic Design at the Estonian Academy of Arts.
-      Most of the time, I work with publications, writing, identities, and web. 
-      I am interested in exploring how all of these practices intersect.
-      When I am not busy on my computer, you can find me on a walk in a cemetery or watching movies.
     </div>
 </div>
 
@@ -181,24 +181,21 @@ body, html {
 </div>
 </div>
 
+<div class="header">
+<div class="bio">
+  Graphic designer (currently) based in Tallinn, EE. 
+  I study, write, read, collect, organize, gather, code (learn) and hang out.
+  As of now, I am pursuing a Master in Graphic Design at the Estonian Academy of Arts.
+  Most of the time, I work with publications, writing, identities, and web. 
+  I am interested in exploring how all of these practices intersect.
+  When I am not busy on my computer, you can find me on a walk in a cemetery or watching movies.
+</div>
+</div>
+
 <br>
-<br>
-<br>
-<br>
-<br>
+
 </body>
 
-<script>
-  var docWidth = document.documentElement.offsetWidth;
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
-</script>
 </html>
 
 
