@@ -19,9 +19,9 @@ body, html {
 
 .image-container {
     display: flex;
-    height: 100vh; /* 100% of the viewport height */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Disable vertical scrolling */
+    height: 100vh; 
+    overflow-x: auto; 
+    overflow-y: hidden; 
 }
 
 .image-wrapper {
@@ -30,11 +30,10 @@ body, html {
 }
 
 .image-wrapper img {
-    display: block; /* Remove default inline spacing */
-    height: 100vh; /* 100% of the viewport height */
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
-    border: none; /* Remove border */
+    display: block; 
+    margin: 0; 
+    padding: 0; 
+    border: none; 
 }
 
 .caption {
@@ -59,18 +58,18 @@ body, html {
 @media (max-width: 768px) {
     .image-container {
         flex-direction: column;
-        overflow-x: hidden; /* Disable horizontal scrolling */
-        overflow-y: auto; /* Enable vertical scrolling */
+        overflow-x: hidden; 
+        overflow-y: auto; 
     }
 
     .image-wrapper {
-        margin: 0; /* Remove margin between image wrappers */
-        padding: 0; /* Remove padding */
-        border: none; /* Remove border */
+        margin: 0; 
+        padding: 0; 
+        border: none; 
     }
 
     .image-wrapper img {
-        width: 100vw; /* 100% of the viewport width */
-        height: auto; /* Adjust height to maintain aspect ratio */
+        width: 100vw; 
+        height: auto; 
     }
 }
