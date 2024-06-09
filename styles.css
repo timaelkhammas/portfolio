@@ -11,11 +11,19 @@ body, html {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 16px;
+    font-size: 15px;
     color: white;
     text-shadow: 0 0 6px #000;
-    z-index: 10;
-    pointer-events: none; 
+    z-index: 10; /* Ensure the text is on top */
+}
+
+.text-top-left a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.text-top-left a:hover {
+    font-style: italic; 
 }
 
 .image-container {
@@ -29,6 +37,11 @@ body, html {
     position: relative;
     flex-shrink: 0;
 }
+
+.arrow-cursor {
+    cursor: e-resize;
+}
+
 
 .image-wrapper img {
     display: block; 
@@ -48,30 +61,3 @@ body, html {
     text-shadow: 0 0 6px #000;
 }
 
-.text-top-left a {
-    color: white; 
-    text-decoration: none; 
-  }
-  
-  .text-top-left a:hover {
-    font-style:italic; 
-  }
-
-@media (max-width: 768px) {
-    .image-container {
-        flex-direction: column;
-        overflow-x: hidden; 
-        overflow-y: auto; 
-    }
-
-    .image-wrapper {
-        margin: 0; 
-        padding: 0; 
-        border: none; 
-    }
-
-    .image-wrapper img {
-        width: 100vw; 
-        height: auto; 
-    }
-}
