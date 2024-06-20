@@ -17,7 +17,8 @@ const pages = [
     {
         content: "The fourth EKA GD MA display library “What We Did With The Budget”, presenting a collection of publications and objects acquired from the Ghent Art Book Fair.",
         topRightText: "EKA GD MA Display Library Exhibition #4 with Laura Martens, 2024", 
-        className: 'page-3'
+        className: 'page-3' 
+    },
     {
         content: "A workshop organized within the framework of Laura Pappa's course Work In Context exploring myth as a mediator of memory.",
         topRightText: "Memory within Myth, 2024", 
@@ -49,15 +50,12 @@ const pages = [
 
 let currentPage = 0; 
 
-
 function updateContent() {
     const contentDiv = document.getElementById('content');
     contentDiv.innerHTML = `
         <p>${pages[currentPage].content}</p>
     `;
-
     document.body.className = pages[currentPage].className;
-
 
     const topRightText = document.querySelector('.top-right-text');
     if (pages[currentPage].topRightText) {
@@ -68,7 +66,6 @@ function updateContent() {
         topRightText.style.display = 'none'; 
     }
 }
-
 
 function navigate(direction) {
     if (direction === 'next' && currentPage < pages.length - 1) {
