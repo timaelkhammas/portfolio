@@ -1,40 +1,85 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var imageContainer = document.getElementById("imageContainer");
-    var imageWrappers = document.querySelectorAll(".image-wrapper");
+const pages = [
+    {
+        content: ``,
+        topRightText: `Fa[tima]-Ezzahra El Khammas is an independent graphic designer. 
+        I mainly work with writing, research, printed matter, identities, web and others.
 
-    // Loop through each image wrapper
-    imageWrappers.forEach(function(wrapper) {
-        // Add mouseenter event listener to each image wrapper
-        wrapper.addEventListener("mouseenter", function() {
-            // Add arrow-cursor class to the image wrapper when mouse enters
-            wrapper.classList.add("arrow-cursor");
-        });
+        For my full portfolio
+        <a href="mailto:timaelkhammas@gmail.com">timaelkhammas[@]gmail.com</a>
+        `, 
+        className: 'page-1' 
+    },
+    {
+        content: "The fourth EKA GD MA display library “What We Did With The Budget”, presenting a collection of publications and objects acquired from the Ghent Art Book Fair.",
+        topRightText: "EKA GD MA Display Library Exhibition #4 with Laura Martens, 2024", 
+        className: 'page-2' 
+    },
+    {
+        content: "The fourth EKA GD MA display library “What We Did With The Budget”, presenting a collection of publications and objects acquired from the Ghent Art Book Fair.",
+        topRightText: "EKA GD MA Display Library Exhibition #4 with Laura Martens, 2024", 
+        className: 'page-3'
+    {
+        content: "A workshop organized within the framework of Laura Pappa's course Work In Context exploring myth as a mediator of memory.",
+        topRightText: "Memory within Myth, 2024", 
+        className: 'page-4'
+    },
+    {
+        content: "A workshop organized within the framework of Laura Pappa's course Work In Context exploring myth as a mediator of memory.",
+        topRightText: "Memory within Myth, 2024", 
+        className: 'page-5'
+    },
+    {
+        content: "Research exploring archives of political publishing practices in the context of Morocco.",
+        topRightText: "ta[kh]zine, ongoing", 
+        className: 'page-6'
+    },
+    {
+        content: "Research exploring archives of political publishing practices in the context of Morocco.",
+        topRightText: "ta[kh]zine, ongoing", 
+        className: 'page-7'
+    },
+    {
+        content: "Research exploring archives of political publishing practices in the context of Morocco.",
+        topRightText: "ta[kh]zine, ongoing", 
+        className: 'page-8'
+    },
 
-        // Add mouseleave event listener to each image wrapper
-        wrapper.addEventListener("mouseleave", function() {
-            // Remove the arrow-cursor class when mouse leaves
-            wrapper.classList.remove("arrow-cursor");
-        });
+];
 
-        // Add click event listener to each image wrapper
-        wrapper.addEventListener("click", function() {
-            // Calculate the scroll position of the clicked image
-            var scrollLeftPos = wrapper.offsetLeft - (imageContainer.offsetWidth / 2) + (wrapper.offsetWidth / 2);
-            
-            // Check if the clicked image is to the left or right of the current scroll position
-            var direction = scrollLeftPos > imageContainer.scrollLeft ? 1 : -1;
-            
-            // Calculate the distance to scroll based on the direction
-            var scrollDistance = direction * Math.min(Math.abs(scrollLeftPos - imageContainer.scrollLeft), imageContainer.offsetWidth / 2);
-            
-            // Scroll the image container horizontally
-            imageContainer.scrollTo({
-                left: imageContainer.scrollLeft + scrollDistance,
-                behavior: 'smooth'
-            });
 
-            // Add direction class to the image wrapper
-            wrapper.classList.toggle("left-scroll", direction === -1);
-        });
-    });
-});
+let currentPage = 0; 
+
+
+function updateContent() {
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = `
+        <p>${pages[currentPage].content}</p>
+    `;
+
+    document.body.className = pages[currentPage].className;
+
+
+    const topRightText = document.querySelector('.top-right-text');
+    if (pages[currentPage].topRightText) {
+        topRightText.innerHTML = pages[currentPage].topRightText.replace(/\n/g, '<br>');
+        topRightText.style.display = 'block'; 
+    } else {
+        topRightText.innerHTML = "";
+        topRightText.style.display = 'none'; 
+    }
+}
+
+
+function navigate(direction) {
+    if (direction === 'next' && currentPage < pages.length - 1) {
+        currentPage++;
+    } else if (direction === 'prev' && currentPage > 0) {
+        currentPage--;
+    }
+    updateContent();
+}
+
+document.querySelector('.right').addEventListener('click', () => navigate('next'));
+document.querySelector('.left').addEventListener('click', () => navigate('prev'));
+
+updateContent();
