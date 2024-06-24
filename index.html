@@ -9,9 +9,8 @@ thank you for taking the time to visit.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Fa(tima)-Ezzahra El Khammas"/>
-<meta property="og:image" content="/images/thumbnail.jpg"/>
-<meta property="og:description" content="Fa(tima)-Ezzahra El Khammas studies, writes, reads, collects, organizes, codes, gathers and hangs out."/>
+<meta property="og:title" content="Fa[tima]-Ezzahra El Khammas"/>
+<meta property="og:description" content="Fa[tima]-Ezzahra El Khammas studies, writes, reads, collects, organizes, codes, gathers and hangs out."/>
 <title>Fa[tima]-Ezzahra El Khammas</title>
 <link rel="icon" type="image/x-icon" href="/images/favicon_32x32.png">
 <style>
@@ -23,6 +22,7 @@ body, html {
     padding: 0;
     transition: color 0.5s ease;
     font-family: Times; 
+    cursor: url('images/cursor.png'), auto; 
   }
 
 .header {
@@ -60,18 +60,19 @@ body, html {
     width: 98%;
     position:absolute; 
     z-index: 9999; 
-    color: black; 
+    color: white; 
     -webkit-text-stroke-width: 0.5px;
     top: 0; 
+    mix-blend-mode: difference;
 }
 
 .text a {
-    color: black; 
+    color: white; 
     text-decoration: none;
 }
 
 .text a:hover {
-  color: black; 
+  color: white; 
   font-style: italic;
 }
 
@@ -87,9 +88,10 @@ body, html {
     -webkit-text-stroke-width: 0.5px;
     width: 60%;
     z-index: 9999;
-    color: black;
+    color: white;
     top: 50px;
     gap: 1em; /* Add gap to evenly space items */
+    mix-blend-mode: difference;
 }
 
 .CV-item {
@@ -252,6 +254,128 @@ body, html {
 </div>
 <br>
 <br>
+
+<script>
+  function getRandomDarkColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return color;
+  }
+
+
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; 
+    }
+    return array;
+  }
+
+  window.onload = function() {
+    var spans = document.querySelectorAll('.text span');
+    spans.forEach(function(span) {
+      span.style.color = getRandomDarkColor();
+    });
+
+    var images = shuffleArray([
+      'images/1.jpg',
+      'images/2.jpg',
+      'images/3.jpg',
+      'images/4.jpg',
+      'images/5.jpg',
+      'images/6.jpeg',
+      'images/7.jpg',
+      'images/8.jpg',
+      'images/9.jpg',
+      'images/10.jpg',
+      'images/11.jpeg',
+      'images/12.jpg',
+      'images/13.jpg',
+      'images/14.jpg',
+      'images/15.jpg',
+      'images/16.jpg',
+      'images/17.jpg',
+      'images/18.jpg',
+      'images/19.jpg',
+      'images/20.jpg',
+      'images/21.jpg',
+    ]);
+    
+    var currentIndex = 0; 
+
+     var event = 'click';
+    if ('ontouchstart' in window) {
+      event = 'touchstart';
+    }
+
+     // Mobile
+    if ('ontouchstart' in window) {
+      document.addEventListener('touchstart', function(event) {
+        var img = document.createElement('img');
+        img.src = images[currentIndex]; 
+        img.style.maxWidth = '300px'; 
+        img.style.position = 'fixed'; 
+        img.style.left = (event.touches[0].clientX - 75) + 'px'; 
+        img.style.top = (event.touches[0].clientY - 75) + 'px'; 
+        img.setAttribute('draggable', 'true');
+        document.body.appendChild(img);
+        currentIndex = (currentIndex + 1) % images.length; 
+      });
+    } else {
+      // Desktop
+      document.addEventListener('click', function(event) {
+        if (!buttonClicked && event.target.id !== 'removeImagesButton') {
+          var img = document.createElement('img');
+          img.src = images[currentIndex]; 
+          img.style.maxWidth = '400px'; 
+          img.style.position = 'fixed'; 
+          img.style.left = (event.pageX - 75) + 'px'; 
+          img.style.top = (event.pageY - 75) + 'px'; 
+          img.setAttribute('draggable', 'true');
+          document.body.appendChild(img);
+          currentIndex = (currentIndex + 1) % images.length; 
+        }
+      });
+    }
+
+    var removeImagesButton = document.getElementById('removeImagesButton');
+      removeImagesButton.addEventListener('click', function(event) {
+        removeAllImages();
+      });
+    };
+
+    document.addEventListener('click', function(event) {
+        if (event.target.id !== 'removeImagesButton') {
+          buttonClicked = false;
+        }
+      });
+
+    var buttonClicked = false;
+
+function removeAllImages() {
+  buttonClicked = true;
+  var images = document.querySelectorAll('img');
+  images.forEach(function(image) {
+    image.parentNode.removeChild(image);
+  });
+}
+
+
+  function changeTextColor() {
+    var spans = document.querySelectorAll('.text span');
+    spans.forEach(function(span) {
+      span.style.color = getRandomDarkColor();
+    });
+  }
+
+  setInterval(changeTextColor, 1000);
+
+
+
+</script>
 </body>
 </html>
 
