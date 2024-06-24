@@ -1,22 +1,254 @@
+<!--
+welcome to my website.                                                                                                                                                                                                                                                                                                                                           
+it's a constant work in progress. 
+thank you for taking the time to visit. 
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tima</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Fa(tima)-Ezzahra El Khammas"/>
+<meta property="og:image" content="/images/thumbnail.jpg"/>
+<meta property="og:description" content="Fa(tima)-Ezzahra El Khammas studies, writes, reads, collects, organizes, codes, gathers and hangs out."/>
+<title>Fa[tima]-Ezzahra El Khammas</title>
+<link rel="icon" type="image/x-icon" href="/images/favicon_32x32.png">
+<style>
+
+
+body, html {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    transition: color 0.5s ease;
+    font-family: Times; 
+  }
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.bio {
+    color: white;
+    margin-top: 0.3em; 
+    margin-left: 12em; 
+    margin-right: 0.5em;
+    font-size: 25px;    
+    line-height: 1.1;
+    -webkit-text-stroke-width: 0.5px;
+    max-width: calc(100% - 9em); 
+}
+
+.bio a {
+    color: white; 
+    text-decoration:underline; 
+}
+
+.bio a:hover {
+    font-style: italic; 
+    color: white; 
+}
+  
+.text {
+    text-align: left;
+    margin-left: 1em;
+    margin-top: 1em;
+    font-size: 14px;
+    line-height: 1.2;
+    width: 97%;
+    position: fixed; 
+    z-index: 9999; 
+    color: white; 
+    -webkit-text-stroke-width: 0.5px;
+    top: 0; 
+}
+
+.text a {
+    color: white; 
+    text-decoration: none; 
+}
+
+.text a:hover {
+    font-style: italic; 
+    color: white; 
+}
+
+.CV {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25em;
+    margin-top: 5em;
+    margin-right: 0.5em;
+    font-size: 14px;
+    line-height: 1.2;
+    -webkit-text-stroke-width: 0.5px;
+    width: 60%;
+    z-index: 9999;
+    color: white;
+    top: 50px;
+    gap: 1em; /* Add gap to evenly space items */
+}
+
+.CV-item {
+    width: calc(50% - 1em); /* Each item takes up 50% of the container's width minus the gap */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    margin-bottom: 1em; /* Even bottom margin for spacing between rows */
+    padding-left: 0; /* Remove padding to align items properly */
+}
+
+@media (max-width: 768px) {
+    .CV-item {
+        width: 95%; /* Full width on smaller screens */
+    }
+
+    .CV {
+        margin-left: 1em;
+        margin-top: 7em;
+        width: 95%;
+        gap: 0.5em; /* Adjust gap for smaller screens */
+    }
+
+    .bio {
+        margin-top: 12em;
+        margin-left: 0.7em;
+        margin-right: 0.5em;
+        font-size: 20px;
+        line-height: 1.2;
+        max-width: calc(100% - 0.5em);
+    }
+}
+</style>
 </head>
+
+
 <body>
-    <div class="top-right-text">
+  <div class="header">
+    <div class="text">
+        Fa[tima]-Ezzahra El Khammas
+        <br>
+        <a href="index.html">Work</a>
+        <br><br>
+        <a href="https://www.are.na/tima/" target="_blank">Are.na</a>
+        <br>
+        <a href="https://www.instagram.com/timaelkhammas/" target="_blank">Instagram</a>
+        <br>
+        <a href="+(372) 5389 0651" target="_blank">+(372) 5389 0651</a>
     </div>
-
-    <div id="content" class="content">
-        <p></p>
+    <div class="bio">
+      Graphic designer based between MAR and EE.
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Currently studying, learning, writing, reading, collecting and organizing with EKA GD MA. 
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      I mainly work with publications, writing, identities, web and I'm interested in exploring how all of these practices intersect.
+      <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      When I'm not busy on my computer, you can find me on a walk in a cemetery or watching movies.
+      <br>
+      For my full portfolio, send an email to <a href="mailto:timaelkhammas@gmail.com" target="_blank">timaelkhammas[@]gmail.com</a>
     </div>
+</div>
+<div class="CV">
+  <div class="CV-item">
+      <u>Publishing</u>
+      <br>
+      <i>ta[kh]zine</i> 
+      <br>
+      2024
+      <br>
+      <i>Liquid Violence</i> 
+      <br>
+      2023
+      <br>
+      <i>Why Didn't They Knock On The Walls Of The Tank?</i> 
+      <br>
+      2021
+  </div>
+  <div class="CV-item">
+    <u>Exhibitions / Events</u>
+    <br>
+    <i>Les Agitateurs Créatifs</i> 
+    <br>
+    2024
+    <br>
+    Group exhibition of the BA graphic design projects of l'École Supérieure des Arts Visuels in Marrakech, Morocco
+    <br>
+    <i>Microcinema As Resistance</i>
+    <br>
+    2023
+    <br>
+    Short movie screenings from Solidarity Cinema organized together with Linnea Lindgren at Uus Laine, Tallinn
 
-    <div class="nav-area left arrow-cursor left-scroll"></div>
-    <div class="nav-area right arrow-cursor"></div>
-
-    <script src="script.js"></script>
+</div>
+  <div class="CV-item">
+    <u>Workshops / Talks</u>
+      <br>
+      <i>I Know Enough To Ask For Water</i> 
+      <br>
+      2024
+      <br>
+      A tour and lecture organized within the framework of Laura Pappa's course "Work in Context"
+      <br>
+      <i>ta[kh]zine</i>
+      <br>
+      2024
+      <br>
+      Part of the evening program of the Fair Enough Book Fair in Tallinn, Estonia
+      <br>
+      <i>Hammer & Chisel</i> 
+      <br>
+      2024
+      <br>
+      Workshop organised together with Laura Martens as part of the program of the Stand-in School for Graphic Design in Berlin, Germany
+      <br>
+      <i>Speed Dating Crits</i> 
+      <br>
+      2024
+      <br>
+      Graphic design feedback session using the structure of speed dating, an evening program organised as part of the Stand-in School for Graphic Design in Berlin, Germany
+  </div>
+  <div class="CV-item">
+    <u>Organized learning / Education</u>
+    <br>
+    <i>Stand-in School for Graphic Design</i> 
+    <br>
+    2024
+    <br>
+    A six-week free and open educational program in Berlin, Germany
+    <br>
+    <i>MA in Graphic Design</i> 
+    <br>
+    2023-2025
+    <br>
+    Estonian Academy of Arts in Tallinn, Estonia
+    <br>
+    <i>BA in Graphic Design</i> 
+    <br>
+    2021-2023
+    <br>
+    L'École Supérieure des Arts Visuels in Marrakech, Morocco
+    <br>
+    <i>The Unootha Writer's Program</i> 
+    <br>
+    2021
+    <br>
+    A summer writer's program organized by Unootha Magazine aiming to highlight the Southwest Asian and North African writing community
+    <br>
+    <i>B.Arch (Architecture)</i> 
+    <br>
+    2017-2020
+    <br>
+    The Rabat School of Architecture in Rabat, Morocco
+</div>
+</div>
+<br>
+<br>
 </body>
 </html>
+
+
