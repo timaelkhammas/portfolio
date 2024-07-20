@@ -193,7 +193,7 @@ body.page-12 video.background-video {
 @media only screen and (max-width: 600px) {
     .content {
         width: 80%;
-        bottom: 50px;
+        bottom: 70px;
         font-size: 13px;
     }
     
