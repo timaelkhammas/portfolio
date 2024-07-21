@@ -11,9 +11,9 @@ body {
 .content {
     text-align: center;
     position: absolute;
-    bottom: 15px;
+    bottom: calc(env(safe-area-inset-bottom) + 15px);
     width: 50%;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1;
     color: white;
