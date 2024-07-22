@@ -79,7 +79,7 @@ img {
         font-size: 1vh;
         line-height: 1.2;
         overflow: hidden;
-        gap: 45px;
+        gap: 10px;
     }
 
     .bottom-text-columns {
@@ -89,6 +89,7 @@ img {
         margin-top: -10px;
         font-size: 1vh;
         line-height: 1.2;
+        overflow: hidden;
     }
 
     .top-text-columns .column:first-child,
