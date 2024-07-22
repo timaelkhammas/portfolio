@@ -25,7 +25,7 @@ img {
     object-fit: cover;
 }
 
-.text-columns {
+.top-text-columns {
     position: fixed;
     top: 45%;
     left: 50%;
@@ -37,25 +37,28 @@ img {
     color: black;
 }
 
-.text-columns a {
-    color: black; 
-    text-decoration: none;
-  }
-  
-.text-columns a:hover {
-    color: red; 
-    font-style: normal;
-  }
-
-.text-columns a:visited {
-    font-style: normal;
-  }
-
-.text-columns + .text-columns {
-    position: static; /* Ensure the second instance is not absolutely positioned */
-    transform: none;
+.bottom-text-columns {
+    position: static;
     margin-top: 5px; /* Add margin for spacing below the slideshow */
     display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.4vh;
+    color: black;
+}
+
+.top-text-columns a, .bottom-text-columns a {
+    color: black; 
+    text-decoration: none;
+}
+  
+.top-text-columns a:hover, .bottom-text-columns a:hover {
+    color: red; 
+    font-style: normal;
+}
+
+.top-text-columns a:visited, .bottom-text-columns a:visited {
+    font-style: normal;
 }
 
 .column {
@@ -65,7 +68,7 @@ img {
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
-    .text-columns {
+    .top-text-columns {
         position: fixed; /* Make the first text column fixed */
         top: -5px;
         left: 0;
@@ -76,16 +79,24 @@ img {
         font-size: 1vh;
         line-height: 1.2;
         overflow: hidden;
+        gap: 10px;
     }
 
-    .text-columns + .text-columns {
+    .bottom-text-columns {
         display: grid;
-        grid-template-columns: auto auto;        
-        gap: 0; /* Add gap between columns */
+        grid-template-columns: auto auto auto;        
+        gap: 5px; /* Add gap between columns */
         margin-top: -10px;
+        font-size: 1vh;
+        line-height: 1.2;
     }
 
-    .text-columns + .text-columns .column {
+    .top-text-columns .column:first-child,
+.top-text-columns .column:nth-child(2) {
+    white-space: nowrap;
+}
+
+    .bottom-text-columns .column {
         width: 100%; /* Full width for each column */
     }
 
@@ -93,4 +104,4 @@ img {
         flex: 1;
         padding: 8px;
     }
-  }
+}
