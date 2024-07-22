@@ -49,11 +49,6 @@ img {
     padding: 8px;
 }
 
-.timesnewroman {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.4vh;
-}
-
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .text-columns {
@@ -65,22 +60,18 @@ img {
         padding: 0.5vw;
         width: 100%; /* Full width */
         font-size: 1vh;
+        line-height: 1.2;
         overflow: hidden;
     }
 
     .text-columns + .text-columns {
         display: grid;
-        grid-template-columns: auto auto auto;        gap: 10px; /* Add gap between columns */
+        grid-template-columns: auto auto auto;        
+        gap: 5px; /* Add gap between columns */
         margin-top: -10px;
     }
 
     .text-columns + .text-columns .column {
         width: 90%; /* Full width for each column */
     }
-
-    .timesnewroman {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1vh;
-    }
-
   }
