@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text-columns {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.4vh;
+    color: black;
+}
+
+.text-columns + .text-columns {
+    position: static; /* Ensure the second instance is not absolutely positioned */
+    transform: none;
+    margin-top: 5px; /* Add margin for spacing below the slideshow */
+    display: flex;
+}
+
+.column {
+    flex: 2;
+    padding: 8px;
+}
+
+.timesnewroman {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.4vh;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .text-columns {
+        position: fixed; /* Make the first text column fixed */
+        top: -5px;
+        left: 0;
+        transform: none;
+        justify-content: flex-start; /* Align content to start */
+        padding: 0.5vw;
+        width: 100%; /* Full width */
+        font-size: 1.1vh;
+        overflow: hidden;
+    }
+
+    .text-columns + .text-columns {
+        display: grid;
+        grid-template-columns: auto auto  ;        gap: 10px; /* Add gap between columns */
+        margin-top: -10px;
+    }
+
+    .text-columns + .text-columns .column {
+        width: 100%; /* Full width for each column */
+    }
+
+  }
