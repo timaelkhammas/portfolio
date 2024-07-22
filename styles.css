@@ -47,6 +47,10 @@ img {
     font-style: normal;
   }
 
+.text-columns a:visited {
+    font-style: normal;
+  }
+
 .text-columns + .text-columns {
     position: static; /* Ensure the second instance is not absolutely positioned */
     transform: none;
