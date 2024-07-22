@@ -80,8 +80,8 @@ img {
 
     .text-columns + .text-columns {
         display: grid;
-        grid-template-columns: auto auto auto;        
-        gap: 5px; /* Add gap between columns */
+        grid-template-columns: auto auto;        
+        gap: 0; /* Add gap between columns */
         margin-top: -10px;
     }
 
