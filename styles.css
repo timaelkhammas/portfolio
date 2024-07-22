@@ -75,7 +75,7 @@ img {
     }
 
     .text-columns + .text-columns .column {
-        width: 100%; /* Full width for each column */
+        width: 90%; /* Full width for each column */
     }
 
     .timesnewroman {
