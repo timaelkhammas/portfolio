@@ -37,6 +37,16 @@ img {
     color: black;
 }
 
+.text-columns a {
+    color: black; 
+    text-decoration: none;
+  }
+  
+.text-columns a:hover {
+    color: red; 
+    font-style: normal;
+  }
+
 .text-columns + .text-columns {
     position: static; /* Ensure the second instance is not absolutely positioned */
     transform: none;
@@ -72,6 +82,11 @@ img {
     }
 
     .text-columns + .text-columns .column {
-        width: 90%; /* Full width for each column */
+        width: 100%; /* Full width for each column */
+    }
+
+    .column {
+        flex: 1;
+        padding: 8px;
     }
   }
