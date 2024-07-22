@@ -79,7 +79,7 @@ img {
         font-size: 1vh;
         line-height: 1.2;
         overflow: hidden;
-        gap: 10px;
+        gap: 45px;
     }
 
     .bottom-text-columns {
@@ -92,9 +92,14 @@ img {
     }
 
     .top-text-columns .column:first-child,
-.top-text-columns .column:nth-child(2) {
+    .top-text-columns .column:nth-child(2) {
     white-space: nowrap;
-}
+    }
+
+    .top-text-columns .column:nth-child(3),
+    .top-text-columns .column:nth-child(4) {
+        display: none;
+    }
 
     .bottom-text-columns .column {
         width: 100%; /* Full width for each column */
