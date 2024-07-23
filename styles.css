@@ -9,6 +9,40 @@ body {
     margin: 0;
 }
 
+.mobile-top-text {
+    display: none;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    font-size: 1vh;
+    color: black;
+    z-index: 999;
+}
+
+.mobile-top-text2 {
+    display: none;
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    font-size: 1vh; 
+    color: black;
+    z-index: 999;
+}
+
+.mobile-top-text a, .mobile-top-text2 a {
+    color: black; 
+    text-decoration: none;
+}
+  
+.mobile-top-text a:hover, .mobile-top-text2 a:hover {
+    color: red; 
+    font-style: normal;
+}
+
+.mobile-top-text a:visited, .mobile-top-text2 a:visited {
+    font-style: normal;
+}
+
 .slideshow-container {
     position: relative;
     max-width: 1000px;
@@ -64,9 +98,15 @@ img {
     color: black;
 }
 
-.top-text-columns a, .bottom-text-columns a {
+.top-text-columns a {
     color: black; 
     text-decoration: none;
+}
+
+.bottom-text-columns a {
+    color: black; 
+    text-decoration: none;
+    font-style: italic;
 }
   
 .top-text-columns a:hover, .bottom-text-columns a:hover {
@@ -85,19 +125,16 @@ img {
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+    .mobile-top-text {
+        display: block; /* Show mobile-only text */
+    }
+
+    .mobile-top-text2 {
+        display: block; /* Show mobile-only text */
+    }
+
     .top-text-columns {
-        position: fixed; /* Make the first text column fixed */
-        top: -5px;
-        left: 0;
-        transform: none;
-        justify-content: flex-start; /* Align content to start */
-        padding: 0.5vw;
-        width: 100%; /* Full width */
-        font-size: 1vh;
-        line-height: 1.2;
-        overflow: hidden;
-        gap: 99px;
-        left: 0;
+        display: none; /* Hide top text columns */
     }
 
     .bottom-text-columns {
