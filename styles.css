@@ -96,13 +96,13 @@ img {
         font-size: 1vh;
         line-height: 1.2;
         overflow: hidden;
-        gap: 35px;
+        gap: 90px;
     }
 
     .bottom-text-columns {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 0; /* Add gap between columns */
+        grid-template-columns: 1fr 1fr; 
+        gap: 0; 
         margin-top: -10px;
         font-size: 1vh;
         line-height: 1.2;
@@ -110,7 +110,6 @@ img {
         width: 100%; /* Full width */
     }
 
-    /* Ensure "Organized learning / Education" and "Workshops / Talks" span the first row */
     .bottom-text-columns .column:nth-child(1) {
         grid-column: span 1; /* First column */
     }
@@ -118,7 +117,6 @@ img {
         grid-column: span 1; /* Second column */
     }
 
-    /* Ensure "Selected Projects," "Publications," and "Contact" share the second row */
     .bottom-text-columns .column:nth-child(3) {
         grid-column: span 1; /* Third column */
     }
@@ -134,11 +132,8 @@ img {
         white-space: nowrap;
     }
 
+    .top-text-columns .column:nth-child(2),
     .top-text-columns .column:nth-child(4) {
-        display: none;
-    }
-
-    .bottom-text-columns .column:nth-child(4) {
         display: none;
     }
 
