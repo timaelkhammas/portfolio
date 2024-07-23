@@ -24,11 +24,17 @@ function showSlides() {
     }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1}
+    if (slideIndex < 1) {slideIndex = slides.length}
     slides[slideIndex - 1].style.display = "block";
     setTimeout(showSlides, 1000); // Change image every 3 seconds
 }
 
 function plusSlides(n) {
     slideIndex += n - 1;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    }
     showSlides();
 }
