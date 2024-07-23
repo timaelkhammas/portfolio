@@ -79,7 +79,7 @@ img {
         font-size: 1vh;
         line-height: 1.2;
         overflow: hidden;
-        gap: 50px;
+        gap: 20px;
     }
 
     .bottom-text-columns {
@@ -97,7 +97,7 @@ img {
     white-space: nowrap;
     }
 
-    .top-text-columns .column:nth-child(3),
+
     .top-text-columns .column:nth-child(4) {
         display: none;
     }
