@@ -12,7 +12,7 @@ body {
 .mobile-top-text {
     display: none;
     position: fixed;
-    top: 3px;
+    top: 5px;
     left: 8px;
     font-size: 1vh;
     color: black;
