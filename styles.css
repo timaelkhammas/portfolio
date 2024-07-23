@@ -12,8 +12,8 @@ body {
 .mobile-top-text {
     display: none;
     position: fixed;
-    top: 5px;
-    left: 5px;
+    top: 3px;
+    left: 8px;
     font-size: 1vh;
     color: black;
     z-index: 999;
@@ -23,7 +23,7 @@ body {
     display: none;
     position: fixed;
     top: 5px;
-    right: 5px;
+    right: 8px;
     font-size: 1vh; 
     color: black;
     z-index: 999;
@@ -151,7 +151,7 @@ img {
     display: none;
     position: fixed;
     top: 2vh; /* Adjust the top value to position it correctly */
-    left: 5px;
+    left: 8px;
     width: 50%;
     text-align: left;
     font-size: 1vh;
