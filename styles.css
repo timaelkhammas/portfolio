@@ -138,6 +138,10 @@ img {
         display: none;
     }
 
+    .bottom-text-columns .column:nth-child(4) {
+        display: none;
+    }
+
     .column {
         flex: 1;
         padding: 8px;
