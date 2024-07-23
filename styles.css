@@ -97,6 +97,7 @@ img {
         line-height: 1.2;
         overflow: hidden;
         gap: 90px;
+        left: 0;
     }
 
     .bottom-text-columns {
