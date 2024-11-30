@@ -15,7 +15,7 @@ body {
     top: 5px;
     left: 8px;
     font-size: 1vh;
-    color: black;
+    color: red;
     z-index: 999;
 }
 
@@ -25,12 +25,12 @@ body {
     top: 5px;
     right: 8px;
     font-size: 1vh; 
-    color: black;
+    color: red;
     z-index: 999;
 }
 
 .mobile-top-text a, .mobile-top-text2 a {
-    color: black; 
+    color: red; 
     text-decoration: none;
 }
   
@@ -85,7 +85,7 @@ img {
     justify-content: center;
     width: 100%;
     font-size: 1.4vh;
-    color: black;
+    color: red;
 }
 
 .top-text-columns2 {
@@ -97,19 +97,19 @@ img {
     justify-content: center;
     width: 100%;
     font-size: 1.4vh;
-    color: black;
+    color: red;
 }
 
 .timesnewroman {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5vh;
-    color: black;
+    color: red;
 }
 
 .timesnewroman2 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.1vh;
-    color: black;
+    color: red;
 }
 
 .bottom-text-columns {
@@ -119,16 +119,16 @@ img {
     justify-content: center;
     width: 100%;
     font-size: 1.4vh;
-    color: black;
+    color: red;
 }
 
 .top-text-columns1 a, .top-text-columns2 a {
-    color: black; 
+    color: red; 
     text-decoration: none;
 }
 
 .bottom-text-columns a {
-    color: black; 
+    color: red; 
     text-decoration: none;
     font-style: italic;
 }
@@ -156,11 +156,11 @@ img {
     text-align: left;
     font-size: 1vh;
     line-height: 1.1;
-    color: black;
+    color: red;
 }
 
 .mobile-about a {
-    color: black; 
+    color: red; 
     text-decoration: none;
     font-style: normal;
 }
