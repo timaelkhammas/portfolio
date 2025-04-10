@@ -98,28 +98,30 @@
 
     let currentIndex = 0;
 
-    function showNextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      const imageContainer = document.querySelector('.image-caption-container');
-      const image = document.getElementById('slideshow-image');
-      const caption = document.getElementById('caption');
-      const current = images[currentIndex];
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  const imageContainer = document.querySelector('.image-caption-container');
+  const image = document.getElementById('slideshow-image');
+  const caption = document.getElementById('caption');
+  const current = images[currentIndex];
 
-      image.src = current.src;
-      caption.textContent = current.caption;
+  image.src = current.src;
+  caption.textContent = current.caption;
 
-      
-    }
+  
+}
 
-    // Add scroll event to trigger image change
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY + window.scrollX;
-      if (Math.abs(currentScroll - lastScroll) > 5) {
-        lastScroll = currentScroll;
-        showNextImage();
-      }
-    });
+
+// Add scroll event to trigger image change only once per swipe/scroll
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (!scrollTimeout) {
+    scrollTimeout = setTimeout(() => {
+      showNextImage();
+      scrollTimeout = null;
+    }, 300); // Wait 300ms before allowing the next change
+  }
+});
   </script>
 </body>
 </html>
