@@ -146,21 +146,6 @@
       }, 250);
     }
 
-    // Add scroll event to trigger image change on desktop
-    let scrollTimeout;
-    let isScrolling = false;
-
-    window.addEventListener('scroll', () => {
-      if (!isScrolling) {
-        isScrolling = true;
-
-        scrollTimeout = setTimeout(() => {
-          showNextImage();
-          isScrolling = false;  // Allow the next scroll trigger
-        }, 500);  // Adjust the delay as necessary
-      }
-    });
-
     // Add touch event to change image on mobile
     let touchTimeout;
     let isTouching = false;
@@ -175,6 +160,23 @@
         }, 500);  // Adjust the delay as necessary
       }
     });
+
+    // Remove scroll event listener for mobile devices
+    if (window.innerWidth > 768) {
+      let scrollTimeout;
+      let isScrolling = false;
+
+      window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+          isScrolling = true;
+
+          scrollTimeout = setTimeout(() => {
+            showNextImage();
+            isScrolling = false;  // Allow the next scroll trigger
+          }, 500);  // Adjust the delay as necessary
+        }
+      });
+    }
   </script>
 </body>
 </html>
