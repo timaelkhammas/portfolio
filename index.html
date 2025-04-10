@@ -68,22 +68,19 @@
     }
 
     @media (max-width: 768px) {
-  .image-caption-container img {
-    width: calc(95% - 20px); /* Make the image take up full width minus padding */
-    padding-right: 20px; /* Padding on the right side */
-  }
+      .image-caption-container img {
+        width: calc(95% - 20px); /* Make the image take up full width minus padding */
+        padding-right: 20px; /* Padding on the right side */
+      }
 
-  .bio {
-      font-size: 14px;
+      .bio {
+          font-size: 14px;
+      }
+
+      .caption {
+        font-size: 14px;
+      }
     }
-
-    .caption {
-      font-size: 14px;
-    }
-}
-
-
-
   </style>
 </head>
 <body>
@@ -149,21 +146,35 @@
       }, 250);
     }
 
-    // Add scroll event to trigger image change only once per swipe/scroll
+    // Add scroll event to trigger image change on desktop
     let scrollTimeout;
-let isScrolling = false;
+    let isScrolling = false;
 
-window.addEventListener('scroll', () => {
-  if (!isScrolling) {
-    isScrolling = true;
+    window.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        isScrolling = true;
 
-    scrollTimeout = setTimeout(() => {
-      showNextImage();
-      isScrolling = false;  // Allow the next scroll trigger
-    }, 500);  // Increase delay to 1000ms (1 second)
-  }
-});
+        scrollTimeout = setTimeout(() => {
+          showNextImage();
+          isScrolling = false;  // Allow the next scroll trigger
+        }, 500);  // Adjust the delay as necessary
+      }
+    });
 
+    // Add touch event to change image on mobile
+    let touchTimeout;
+    let isTouching = false;
+
+    window.addEventListener('touchstart', () => {
+      if (!isTouching) {
+        isTouching = true;
+
+        touchTimeout = setTimeout(() => {
+          showNextImage();
+          isTouching = false;  // Allow the next touch trigger
+        }, 500);  // Adjust the delay as necessary
+      }
+    });
   </script>
 </body>
 </html>
