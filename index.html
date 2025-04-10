@@ -151,14 +151,19 @@
 
     // Add scroll event to trigger image change only once per swipe/scroll
     let scrollTimeout;
-    window.addEventListener('scroll', () => {
-      if (!scrollTimeout) {
-        scrollTimeout = setTimeout(() => {
-          showNextImage();
-          scrollTimeout = null;
-        }, 500); // Wait 500ms before allowing the next change
-      }
-    });
+let isScrolling = false;
+
+window.addEventListener('scroll', () => {
+  if (!isScrolling) {
+    isScrolling = true;
+
+    scrollTimeout = setTimeout(() => {
+      showNextImage();
+      isScrolling = false;  // Allow the next scroll trigger
+    }, 500);  // Increase delay to 1000ms (1 second)
+  }
+});
+
   </script>
 </body>
 </html>
