@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>fa(tima)-ezzahra el khammas</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #c6c6c6;
+      height: 100vh;
+      color: white;
+      font-family: sans-serif;
+      overflow: auto;
+    }
+
+    .bio {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      margin-right: 40px;
+      max-width: 800px;
+      color: black;
+    }
+
+    a {
+      color: black;
+      background-color: yellow;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: black;
+      background-color: white;
+      text-decoration: underline;
+    }
+
+    .image-caption-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 10;
+      max-width: 500px;
+      transition: all 0.4s ease;
+    }
+
+    .image-caption-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 16px;
+      line-height: 1.4;
+      mix-blend-mode: difference;
+      color: black;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="bio">
+    Graphic designer currently based in Tallinn and studying at 
+    <a href="https://www.instagram.com/ekagd_ma/" target="_blank">EKA GD MA</a>.
+    <br>
+    I like to work with friends and other collaborators on different projects that range from books, 
+    printed matter and texts to graphic identities, exhibitions, websites, ephemera, and others.
+    <br>
+    Request a portfolio or send a 
+    <a href="mailto:timaelkhammas@gmail.com">hello</a>!
+  </div>
+
+  <div class="image-caption-container">
+    <img id="slideshow-image" src="images/1.jpg" alt="Image 1" />
+    <div class="caption" id="caption">Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren</div>
+  </div>
+
+  <script>
+    const images = [
+      {
+        src: "images/1.jpg",
+        caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
+        size: "full"
+      },
+      {
+        src: "images/2.jpg",
+        caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
+        size: "full"
+      },
+      {
+        src: "images/3.png",
+        caption: "Website for Artichoke Biennale, 2025",
+        size: "small"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      const imageContainer = document.querySelector('.image-caption-container');
+      const image = document.getElementById('slideshow-image');
+      const caption = document.getElementById('caption');
+      const current = images[currentIndex];
+
+      image.src = current.src;
+      caption.textContent = current.caption;
+
+      
+    }
+
+    // Add scroll event to trigger image change
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY + window.scrollX;
+      if (Math.abs(currentScroll - lastScroll) > 5) {
+        lastScroll = currentScroll;
+        showNextImage();
+      }
+    });
+  </script>
+</body>
+</html>
