@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.cdnfonts.com/css/elmono-2" rel="stylesheet">               
   <title>fa(tima)-ezzahra el khammas</title>
   <style>
     body {
@@ -10,8 +11,8 @@
       background-color: #c6c6c6;
       height: 100vh;
       color: white;
-      font-family: sans-serif;
       overflow: auto;
+      font-family: 'Elmono', sans-serif;
     }
 
     .bio {
@@ -21,6 +22,7 @@
       margin-right: 40px;
       max-width: 800px;
       color: black;
+      z-index: 2;
     }
 
     a {
@@ -36,28 +38,43 @@
     }
 
     .image-caption-container {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 10;
-      max-width: 500px;
-      transition: all 0.4s ease;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .image-caption-container img {
-      width: 100%;
-      height: auto;
-      display: block;
+      max-width: 100%;
+      transition: opacity 0.25s ease;
+    }
+
+    .image-caption-container.full-screen img {
+      height: 100%;
+      object-fit: cover;
     }
 
     .caption {
-      margin-top: 8px;
+      display: inline;
       font-size: 16px;
       line-height: 1.4;
-      mix-blend-mode: difference;
       color: black;
       background-color: yellow;
+      max-width: 90%;
+      z-index: 10;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
     }
+
+    /* Ensure that the i tag is styled for italic */
+    .caption i {
+      font-style: italic;
+    }
+
   </style>
 </head>
 <body>
@@ -73,55 +90,89 @@
   </div>
 
   <div class="image-caption-container">
-    <img id="slideshow-image" src="images/1.jpg" alt="Image 1" />
-    <div class="caption" id="caption">Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren</div>
+    <img id="slideshow-image" />
+    <div class="caption" id="caption"></div>
   </div>
 
   <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const image = document.getElementById('slideshow-image');
+      const caption = document.getElementById('caption');
+      const container = document.querySelector('.image-caption-container');
+      const current = images[0];
+
+      image.src = current.src;
+      caption.innerHTML = current.caption;
+      container.style.backgroundColor = current.background || "#c6c6c6";
+      
+      // Remove 'full-screen' class initially
+      container.classList.remove("full-screen");
+
+      // Add the 'full-screen' class only if the current image has 'full' size
+      if (current.size === "full") {
+        container.classList.add("full-screen");
+      }
+    });
+
     const images = [
       {
         src: "images/1.jpg",
         caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
-        size: "full"
+        size: "small",  // This should make it small
+        background: "#c6c6c6"
       },
       {
-        src: "images/2.jpg",
+        src: "images/2.png",
         caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
-        size: "full"
+        size: "full",  // This will be full screen
+        background: "#c6c6c6"
       },
       {
-        src: "images/3.png",
-        caption: "Website for Artichoke Biennale, 2025",
-        size: "small"
+        src: "images/3.jpg",
+        caption: "Library exhibition <i>What We Did With The Budget</i> with Laura Martens, 2024",
+        size: "small",
+        background: "white"
       }
     ];
 
     let currentIndex = 0;
 
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % images.length;
-  const imageContainer = document.querySelector('.image-caption-container');
-  const image = document.getElementById('slideshow-image');
-  const caption = document.getElementById('caption');
-  const current = images[currentIndex];
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      const image = document.getElementById('slideshow-image');
+      const caption = document.getElementById('caption');
+      const container = document.querySelector('.image-caption-container');
+      const current = images[currentIndex];
 
-  image.src = current.src;
-  caption.textContent = current.caption;
+      image.style.opacity = 0;
 
-  
-}
+      setTimeout(() => {
+        image.src = current.src;
+        caption.innerHTML = current.caption; // Ensure HTML is parsed
+        image.style.opacity = 1;
 
+        // Set background color
+        container.style.backgroundColor = current.background || "#c6c6c6";
 
-// Add scroll event to trigger image change only once per swipe/scroll
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-  if (!scrollTimeout) {
-    scrollTimeout = setTimeout(() => {
-      showNextImage();
-      scrollTimeout = null;
-    }, 500); // Wait 300ms before allowing the next change
-  }
-});
+        // Toggle full-screen class only if the image is set to full screen
+        if (current.size === "full") {
+          container.classList.add("full-screen");
+        } else {
+          container.classList.remove("full-screen");
+        }
+      }, 250);
+    }
+
+    // Add scroll event to trigger image change only once per swipe/scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (!scrollTimeout) {
+        scrollTimeout = setTimeout(() => {
+          showNextImage();
+          scrollTimeout = null;
+        }, 500); // Wait 500ms before allowing the next change
+      }
+    });
   </script>
 </body>
 </html>
