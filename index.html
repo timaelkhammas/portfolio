@@ -9,14 +9,12 @@
     body {
       margin: 0;
       background-color: #c6c6c6;
-      height: 100vh;
       color: white;
-      overflow: auto;
       font-family: 'Elmono', sans-serif;
     }
 
     .bio {
-      position: absolute;
+      position: relative;
       top: 20px;
       left: 20px;
       margin-right: 40px;
@@ -40,34 +38,26 @@
     .image-caption-container {
       position: relative;
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column; /* Align image and caption vertically */
+      align-items: flex-start; /* Align images to the left */
+      margin-top: 40px; /* Add space between the bio and the images */
+      padding-left: 20px; /* Add some padding for spacing */
     }
 
     .image-caption-container img {
-      max-width: 100%;
+      width: 500px; /* Fixed width for all images */
       transition: opacity 0.25s ease;
     }
 
-    .image-caption-container.full-screen img {
-      height: 100%;
-      object-fit: cover;
-    }
-
     .caption {
-      display: inline;
       font-size: 16px;
       line-height: 1.4;
       color: black;
       background-color: yellow;
       max-width: 90%;
       z-index: 10;
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
+      margin-top: 10px; /* Add space between image and caption */
     }
 
     /* Ensure that the i tag is styled for italic */
@@ -83,8 +73,8 @@
     <a href="https://www.instagram.com/ekagd_ma/" target="_blank">EKA GD MA</a>.
     <br>
     I like to work with friends and other collaborators on different projects that range from books, 
-    printed matter and texts to graphic identities, exhibitions, websites, ephemera, and others.
-    <br>
+    printed matter and texts to graphic identities, exhibitions, websites, ephemera, etc.
+    <br><br>
     Request a portfolio or send a 
     <a href="mailto:timaelkhammas@gmail.com">hello</a>!
   </div>
@@ -98,41 +88,29 @@
     window.addEventListener('DOMContentLoaded', () => {
       const image = document.getElementById('slideshow-image');
       const caption = document.getElementById('caption');
-      const container = document.querySelector('.image-caption-container');
       const current = images[0];
 
+      // Set the image and caption
       image.src = current.src;
       caption.innerHTML = current.caption;
-      container.style.backgroundColor = current.background || "#c6c6c6";
-      
-      // Remove 'full-screen' class initially
-      container.classList.remove("full-screen");
-
-      // Add the 'full-screen' class only if the current image has 'full' size
-      if (current.size === "full") {
-        container.classList.add("full-screen");
-      }
     });
 
     const images = [
       {
         src: "images/1.jpg",
-        caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
-        size: "small",  // This should make it small
+        caption: "<i>Microcinema</i> organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
         background: "#c6c6c6"
       },
       {
         src: "images/2.png",
-        caption: "Microcinema organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
-        size: "full",  // This will be full screen
+        caption: "<i>Microcinema</i> organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
         background: "#c6c6c6"
       },
       {
-        src: "images/3.jpg",
-        caption: "Library exhibition <i>What We Did With The Budget</i> with Laura Martens, 2024",
-        size: "small",
+        src: "images/3.jpeg",
+        caption: "<i>Third Space</i>, 134 pages, 100 × 150mm, 2024",
         background: "white"
-      }
+      },
     ];
 
     let currentIndex = 0;
@@ -141,7 +119,6 @@
       currentIndex = (currentIndex + 1) % images.length;
       const image = document.getElementById('slideshow-image');
       const caption = document.getElementById('caption');
-      const container = document.querySelector('.image-caption-container');
       const current = images[currentIndex];
 
       image.style.opacity = 0;
@@ -150,16 +127,6 @@
         image.src = current.src;
         caption.innerHTML = current.caption; // Ensure HTML is parsed
         image.style.opacity = 1;
-
-        // Set background color
-        container.style.backgroundColor = current.background || "#c6c6c6";
-
-        // Toggle full-screen class only if the image is set to full screen
-        if (current.size === "full") {
-          container.classList.add("full-screen");
-        } else {
-          container.classList.remove("full-screen");
-        }
       }, 250);
     }
 
