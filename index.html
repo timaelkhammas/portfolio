@@ -40,16 +40,21 @@
       position: relative;
       width: 100%;
       display: flex;
-      flex-direction: column; /* Align image and caption vertically */
-      align-items: flex-start; /* Align images to the left */
-      margin-top: 40px; /* Add space between the bio and the images */
-      padding-left: 20px; /* Add some padding for spacing */
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 40px;
+      padding-left: 20px;
     }
 
     .image-caption-container img {
-      width: 500px; /* Fixed width for all images */
-      transition: opacity 0.25s ease;
-    }
+  width: 500px;
+  transition: opacity 0.25s ease;
+}
+
+.image-caption-container img.portrait {
+  width: 350px;
+}
+
 
     .caption {
       font-size: 16px;
@@ -58,26 +63,22 @@
       background-color: yellow;
       max-width: 90%;
       z-index: 10;
-      margin-top: 10px; /* Add space between image and caption */
+      margin-top: 10px;
       font-size: 15px;
     }
 
-    /* Ensure that the i tag is styled for italic */
     .caption i {
       font-style: italic;
     }
 
     @media (max-width: 768px) {
       .image-caption-container img {
-        width: calc(95% - 20px); /* Make the image take up full width minus padding */
-        padding-right: 20px; /* Padding on the right side */
+        width: calc(95% - 20px);
+        padding-right: 20px;
       }
 
+      .caption,
       .bio {
-          font-size: 14px;
-      }
-
-      .caption {
         font-size: 14px;
       }
     }
@@ -101,72 +102,78 @@
   </div>
 
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const image = document.getElementById('slideshow-image');
-      const caption = document.getElementById('caption');
-      const current = images[0];
-
-      // Set the image and caption
-      image.src = current.src;
-      caption.innerHTML = current.caption;
-    });
-
     const images = [
       {
         src: "images/1.jpg",
         caption: "<i>Microcinema</i> organized with Rok Ifko Kranjc and Linnea Lindgren, 2025",
-        background: "#c6c6c6"
+        background: "#c6c6c6",
+        class: "landscape"
       },
       {
         src: "images/2.jpeg",
         caption: "<i>Belong to Our Nonsense</i> designed with Linnea Lindgren, 56 pages, 105 × 148mm, 2023",
-        background: "#c6c6c6"
+        background: "#c6c6c6",
+        class: "landscape"
       },
       {
         src: "images/3.jpeg",
         caption: "<i>Third Space</i>, 134 pages, 100 × 150mm, 2024",
-        background: "black"
+        background: "black",
+        class: "landscape"
       },
       {
         src: "images/4.jpg",
         caption: "Website for the closing party of the <i>Stand-in School for Graphic Design</i> in Berlin, 2024",
-        background: "black"
+        class: "portrait"
       }
     ];
 
     let currentIndex = 0;
 
     function showNextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      const image = document.getElementById('slideshow-image');
-      const caption = document.getElementById('caption');
-      const current = images[currentIndex];
+  currentIndex = (currentIndex + 1) % images.length;
+  const image = document.getElementById('slideshow-image');
+  const caption = document.getElementById('caption');
+  const current = images[currentIndex];
 
-      image.style.opacity = 0;
+  image.style.opacity = 0;
 
-      setTimeout(() => {
-        image.src = current.src;
-        caption.innerHTML = current.caption; // Ensure HTML is parsed
-        image.style.opacity = 1;
-      }, 250);
-    }
+  setTimeout(() => {
+    image.className = ""; // Clear previous classes
+    if (current.class) image.classList.add(current.class);
 
-    // Add touch event to change image on mobile
+    image.src = current.src;
+    caption.innerHTML = current.caption;
+    image.style.opacity = 1;
+  }, 250);
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const image = document.getElementById('slideshow-image');
+  const caption = document.getElementById('caption');
+  const current = images[0];
+
+  image.className = ""; // Clear any previous class
+  if (current.class) image.classList.add(current.class);
+
+  image.src = current.src;
+  caption.innerHTML = current.caption;
+});
+
     let touchTimeout;
     let isTouching = false;
 
     window.addEventListener('touchstart', () => {
       if (!isTouching) {
         isTouching = true;
-
         touchTimeout = setTimeout(() => {
           showNextImage();
-          isTouching = false;  // Allow the next touch trigger
-        }, 500);  // Adjust the delay as necessary
+          isTouching = false;
+        }, 500);
       }
     });
 
-    // Remove scroll event listener for mobile devices
     if (window.innerWidth > 768) {
       let scrollTimeout;
       let isScrolling = false;
@@ -174,14 +181,13 @@
       window.addEventListener('scroll', () => {
         if (!isScrolling) {
           isScrolling = true;
-
           scrollTimeout = setTimeout(() => {
             showNextImage();
-            isScrolling = false;  // Allow the next scroll trigger
-          }, 500);  // Adjust the delay as necessary
+            isScrolling = false;
+          }, 500);
         }
       });
     }
-</script>
+  </script>
 </body>
 </html>
