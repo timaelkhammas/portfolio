@@ -61,7 +61,7 @@
       max-width: 500px;
       z-index: 10;
       margin-top: 10px;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 1.2em;
     }
 
@@ -159,6 +159,19 @@
         background: "black",
         class: "portrait"
       },
+      // SEEDS GROWING INTO SOIL
+      {
+        src: "images/1 Seeds.jpg",
+        caption: "<i>seeds into soil and weaving the first lines</i>, Craft Studies MA at the Estonian Academy of Arts, 115 × 180mm, edition of 300, 2025",
+        background: "#c6c6c6",
+        class: "landscape"
+      },
+      {
+        src: "images/2 Seeds.jpg",
+        caption: "<i>seeds into soil and weaving the first lines</i>, Craft Studies MA at the Estonian Academy of Arts, 115 × 180mm, edition of 300, 2025",
+        background: "#c6c6c6",
+        class: "landscape"
+      },
       // ARCHIVE OF MM
       {
         src: "images/1 Archive of MM.jpg",
@@ -166,48 +179,89 @@
         background: "#c6c6c6",
         class: "landscape"
       },
+      {
+        src: "images/2 Archive of MM.jpg",
+        caption: "EKA BA Workshop <i>Archive of MM</i> organized with Rok Ifko Kranjc on display at the Estonian Museum of Applied Art and Design, 2024",
+        background: "#c6c6c6",
+        class: "portrait"
+      },
       // BELONG TO OUR NONSENSE
       {
-        src: "images/2.jpeg",
+        src: "images/1 BTON.jpeg",
         caption: "<i>Belong to Our Nonsense</i> designed with Linnea Lindgren, 56 pages, 105 × 148mm, 2023",
         background: "#c6c6c6",
         class: "landscape"
       },
       {
-        src: "images/4.jpg",
+        src: "images/2 BTON.jpg",
+        caption: "<i>Belong to Our Nonsense</i> designed with Linnea Lindgren, 56 pages, 105 × 148mm, 2023",
+        background: "#c6c6c6",
+        class: "portrait"
+      },
+      {
+        src: "images/3 BTON.jpg",
+        caption: "<i>Belong to Our Nonsense</i> designed with Linnea Lindgren, 56 pages, 105 × 148mm, 2023",
+        background: "#c6c6c6",
+        class: "landscape"
+      },
+      // TAKHZINE
+      {
+        src: "images/1 takhzine.jpg",
         caption: "Issue #1 of ta[kh]zine <i>Ciné-clubs and the UNEM</i>, 420 x 594 mm, edition of 100, 2024",
         class: "landscape"
       },
+      // HAMMER OR CHISEL
       {
-        src: "images/5.jpg",
+        src: "images/1 Hammer or Chisel.jpg",
         caption: "Workshop <i>Hammer or Chisel</i> with Laura Martens at the Stand-in School for Graphic Design in Berlin, 2024",
         class: "landscape"
       },
       {
-        src: "images/6.jpg",
+        src: "images/2 Hammer or Chisel.jpg",
+        caption: "Workshop <i>Hammer or Chisel</i> with Laura Martens at the Stand-in School for Graphic Design in Berlin, 2024",
+        class: "portrait"
+      },
+      // STAND IN SCHOOL 
+      {
+        src: "images/1 Stand School Web.jpg",
         caption: "Website for the Stand-in School for Graphic Design in Berlin, 2024",
         class: "portrait"
       },
+      // LIBRARY EXHIBITION
       {
-        src: "images/7.jpg",
+        src: "images/1 Library Exhibition.jpg",
         caption: "Library exhibition <i>What We Did With The Budget</i> with Laura Martens, 2024",
         class: "landscape"
       },
       {
-        src: "images/8.jpg",
-        caption: "Analogue presentation <i>I Know Enough To Ask For Water</i>, 2024",
+        src: "images/2 Library Exhibition.jpg",
+        caption: "Library exhibition <i>What We Did With The Budget</i> with Laura Martens, 2024",
+        class: "portrait"
+      },
+      // LAURA PAPPA
+      {
+        src: "images/1 LP.jpeg",
+        caption: "Workshop <i>Myth or memory</i> given as part of Laura Pappa's Work in Context course, 2024",
         class: "portrait"
       },
       {
-        src: "images/9.jpg",
-        caption: "Identity for the Craft Studies MA exhibition <i>Objects or Things</i>, 2024",
-        class: "landscape"
+        src: "images/2 LP.jpg",
+        caption: "Analogue presentation <i>I Know Enough To Ask For Water</i> given as part of Laura Pappa's Work in Context course, 2024",
+        class: "portrait"
       },
     ];
 
     let currentIndex = 0;
 
-    function showNextImage() {
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function showNextImage() {
   currentIndex = (currentIndex + 1) % images.length;
   const image = document.getElementById('slideshow-image');
   const caption = document.getElementById('caption');
@@ -216,55 +270,56 @@
   image.style.opacity = 0;
 
   setTimeout(() => {
-    image.className = ""; // Clear previous classes
+    image.className = "";
     if (current.class) image.classList.add(current.class);
-
     image.src = current.src;
     caption.innerHTML = current.caption;
     image.style.opacity = 1;
   }, 250);
 }
 
-
 window.addEventListener('DOMContentLoaded', () => {
+  shuffleArray(images); // Shuffle on load
+
   const image = document.getElementById('slideshow-image');
   const caption = document.getElementById('caption');
   const current = images[0];
 
-  image.className = ""; // Clear any previous class
+  image.className = "";
   if (current.class) image.classList.add(current.class);
 
   image.src = current.src;
   caption.innerHTML = current.caption;
 });
 
-    let touchTimeout;
-    let isTouching = false;
+let touchTimeout;
+let isTouching = false;
 
-    window.addEventListener('touchstart', () => {
-      if (!isTouching) {
-        isTouching = true;
-        touchTimeout = setTimeout(() => {
-          showNextImage();
-          isTouching = false;
-        }, 500);
-      }
-    });
+window.addEventListener('touchstart', () => {
+  if (!isTouching) {
+    isTouching = true;
+    touchTimeout = setTimeout(() => {
+      showNextImage();
+      isTouching = false;
+    }, 500);
+  }
+});
 
-    if (window.innerWidth > 768) {
-      let scrollTimeout;
-      let isScrolling = false;
+if (window.innerWidth > 768) {
+  let scrollTimeout;
+  let isScrolling = false;
 
-      window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-          isScrolling = true;
-          scrollTimeout = setTimeout(() => {
-            showNextImage();
-            isScrolling = false;
-          }, 500);
-        }
-      });
+  window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+      isScrolling = true;
+      scrollTimeout = setTimeout(() => {
+        showNextImage();
+        isScrolling = false;
+      }, 500);
     }
+  });
+}
+
   </script>
 </body>
 </html>
