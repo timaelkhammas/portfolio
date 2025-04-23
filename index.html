@@ -22,17 +22,18 @@
       color: #c6c6c6;
       z-index: 2;
       font-size: 14px;
+      font-weight: 500;
       line-height: 1.2em;
     }
 
     a {
-      color: #c6c6c6;
-      text-decoration: none;
+      color: black;
+      text-decoration: underline;
     }
 
     a:hover {
-      color: black;
-      text-decoration: underline;
+      color: #c6c6c6;
+      text-decoration: none;
     }
 
     .image-caption-container {
@@ -46,13 +47,13 @@
     }
 
     .image-caption-container img {
-  width: 500px;
-  transition: opacity 0.25s ease;
-}
+      width: 500px;
+      transition: opacity 0.25s ease;
+    }
 
-.image-caption-container img.portrait {
-  width: 350px;
-}
+    .image-caption-container img.portrait {
+      width: 350px;
+    }
 
 
     .caption {
@@ -60,7 +61,7 @@
       max-width: 500px;
       z-index: 10;
       margin-top: 10px;
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.2em;
     }
 
@@ -144,12 +145,6 @@
         class: "portrait"
       },
       {
-        src: "images/2 Third Space.jpg",
-        caption: "<i>Third Space</i>, 134 pages, 100 × 150mm, edition of 150, 2024",
-        background: "black",
-        class: "portrait"
-      },
-      {
         src: "images/3 Third Space.jpg",
         caption: "<i>Third Space</i>, 134 pages, 100 × 150mm, edition of 150, 2024",
         background: "black",
@@ -168,6 +163,7 @@
         background: "#c6c6c6",
         class: "landscape"
       },
+      // BELONG TO OUR NONSENSE
       {
         src: "images/2.jpeg",
         caption: "<i>Belong to Our Nonsense</i> designed with Linnea Lindgren, 56 pages, 105 × 148mm, 2023",
